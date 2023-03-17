@@ -1,17 +1,22 @@
-#include <stdlib.h>
-#include <string.h>
-/* more headers goes there */
+#include <unistd.h>
+#include <stdio.h>
 
-/* betty style doc for function main goes there */
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+
 int main(void)
 {
-        int i;
-        char alpha[]="abcdefghijklmnopqrstuvwxyz";
-        for (i = 0; i < strlen(alpha); i++)
-        {
-            putchar(alpha[i]);
-        }
-        putchar('\n');
-        return (0);
-}
+	char alphabet;
 
+	alphabet = 'a';
+	while (alphabet <= 'z')
+	{
+		putchar(alphabet);
+		alphabet++;
+	}
+	putchar('\n');
+	return (0);
+}
