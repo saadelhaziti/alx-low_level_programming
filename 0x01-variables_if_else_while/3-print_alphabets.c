@@ -10,6 +10,7 @@
 int main(void)
 {
 	char alphabet;
+	char uppercase;
 
 	alphabet = 'a';
 	while (alphabet <= 'z')
