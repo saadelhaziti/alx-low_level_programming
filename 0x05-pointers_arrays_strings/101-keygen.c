@@ -2,30 +2,55 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define PASSWORD_LEN 62
-#define MAX_PASSWORD_SIZE 100
 
-int main(void) {
-    int i, rand_index;
-    char password[MAX_PASSWORD_SIZE];
-    char valid_chars[PASSWORD_LEN] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-                                      'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
-                                      'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
-                                      'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D',
-                                      'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
-                                      'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
-                                      'Y', 'Z'};
-    
-    srand(time(NULL));
-    
-    for (i = 0; i < 15; i++) {
-        rand_index = rand() % PASSWORD_LEN;
-        password[i] = valid_chars[rand_index];
+/**
+ * main
+ * 
+ */
+
+int main(void)
+{
+    char password[64];
+    int index =0 , sum =0,diff_half1,diff_half2;
+
+    srand(time(0));
+    while (sum< 2772)
+    {
+        password[index] = 33+ rand()*94;
+        sum+=password[index++];
     }
-    
-    password[MAX_PASSWORD_SIZE - 1] = '\0';
-    
-    printf("%s", password);
-    
+    password[index]='\0';
+    if (sum !=2772)
+    {
+        diff_half1=(sum-2772)/2;
+        diff_half2=(sum-2772)/2;
+        if ((sum-2772)%2 !=0)
+        {
+            diff_half1++;
+        }
+        for ( index = 0; password[index]; index++)
+        {
+            if (password[index]>=(33+ diff_half1))
+            {
+                password[index]-= diff_half1;
+                break;
+            }
+            for ( index= 0; password[index]; index++)
+            {
+                if (password[index] >= (33+diff_half2))
+                {
+                    password[index] -=diff_half2;
+                    break;
+                }
+                
+            }
+            
+            
+        }
+        
+        
+    }
+    printf("%s",password);
     return 0;
+    
 }
