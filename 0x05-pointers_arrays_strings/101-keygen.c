@@ -14,7 +14,7 @@ int main(void)
     int rang;
     srand(time(NULL));
     i=0;
-    while (i<=20)
+    while (i<15)
     {
         rang= rand()%128;
         putchar(rang);
