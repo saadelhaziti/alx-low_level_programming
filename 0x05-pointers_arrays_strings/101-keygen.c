@@ -18,7 +18,7 @@ int main(void) {
     
     srand(time(NULL));
     
-    for (i = 0; i < MAX_PASSWORD_SIZE; i++) {
+    for (i = 0; i < 15; i++) {
         rand_index = rand() % PASSWORD_LEN;
         password[i] = valid_chars[rand_index];
     }
