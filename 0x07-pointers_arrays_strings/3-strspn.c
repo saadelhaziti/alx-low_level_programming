@@ -11,23 +11,23 @@
 
 unsigned int _strspn(char *s, char *accept)
 {
-int x;
-int y;
-unsigned int oct;
+	int i;
+	int j;
+	unsigned int bytes;
 
-oct = 0;
-for (x = 0; s[x] != '\0'; x++)
-{
-if (s[x] != ' ')
-{
-for (y = 0; accept[y] != '\0'; y++)
-{
-if (s[y] == accept[y])
-oct++;
-}
-}
-else
-return (oct);
-}
-return (oct);
+	bytes = 0;
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		if (s[i] != ' ')
+		{
+			for (j = 0; accept[j] != '\0'; j++)
+			{
+				if (s[i] == accept[j])
+					bytes++;
+			}
+		}
+		else
+			return (bytes);
+	}
+	return (bytes);
 }
