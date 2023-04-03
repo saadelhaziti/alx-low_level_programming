@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strspn -> length of a prefix substring
+ * _strspn -> Gets the length of a prefix substring
  *
  * @s: Input
  * @accept: Input
