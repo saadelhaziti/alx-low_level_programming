@@ -20,7 +20,7 @@ return (_strlen(s) + 1);
  * _compare -> Compare
  *
  * @s: Inpute String
- * @len: String Length
+ * @fin: String Length
  *
  * Return: Depend Condition
  */
