@@ -18,7 +18,7 @@ return (-1);
 if (i * i == x)
 return (i);
 i++;
-nb = _sqrt(x, i)
+nb = _sqrt(x, i);
 return (nb);
 }
 
