@@ -12,34 +12,34 @@
 
 char *str_concat(char *s1, char *s2)
 {
-int a;
-int b;
-int k = 0;
-int size;
-int size1;
-int size2;
-char *new;
+	int i;
+	int j;
+	int k = 0;
+	int len;
+	int len1;
+	int len2;
+	char *new;
 
-if (s1 == NULL)
-s1 = "";
-if (s2 == NULL)
-s2 = "";
-for (size1 = 0; s1[size1] != '\0'; size++)
-;
-for (size2 = 0; s2[size2] != '\0'; size++)
-;
-size = size1 + size2;
-new = (char *) malloc(size + 1 * sizeof(char));
-if (new == NULL)
-return (NULL);
-for (a = 0; s1[a] != '\0'; a++, k++)
-{
-new[k] = s1[a];
-}
-for (b = 0; s2[b] != '\0'; b++, k++)
-{
-new[k] = s2[b];
-}
-new[k] = '\0';
-return (new);
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+	for (len1 = 0; s1[len1] != '\0'; len1++)
+		;
+	for (len2 = 0; s2[len2] != '\0'; len2++)
+		;
+	len = len1 + len2;
+	new = (char *) malloc(len + 1 * sizeof(char));
+	if (new == NULL)
+		return (NULL);
+	for (i = 0; s1[i] != '\0'; i++, k++)
+	{
+		new[k] = s1[i];
+	}
+	for (j = 0; s2[j] != '\0'; j++, k++)
+	{
+		new[k] = s2[j];
+	}
+	new[k] = '\0';
+	return (new);
 }
