@@ -66,7 +66,7 @@ printf("%c", x);
 
 void print_all(const char * const format, ...)
 {
-int i; 
+int i;
 int j;
 char *spechlle = "";
 va_list args;
@@ -80,7 +80,7 @@ i = 0;
 while (format && (*(format + i)))
 {
 j = 0;
-while (j < 4 && (*(format +i) != *(func[j].str)))
+while (j < 4 && (*(format + i) != *(func[j].str)))
 {
 j++;
 }
