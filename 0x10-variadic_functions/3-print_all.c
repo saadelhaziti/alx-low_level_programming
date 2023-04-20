@@ -3,95 +3,94 @@
 #include "variadic_functions.h"
 
 /**
- * _string-> print string
- * @var: Args list
+* print_char - Prints a char
+* @arg: Args List
 */
 
-void p_string(va_list var)
+void print_char(va_list arg)
 {
-char *str;
+	char alpha;
 
-str = va_arg(var, char *);
-if (str != NULL)
-{
-printf("%s", str);
-return;
-}
-printf("(nil)");
+	alpha = va_arg(arg, int);
+	printf("%c", alpha);
 }
 
 /**
- * _float-> print float
- * @var: Args list
+* print_int - Prints an int.
+* @arg: Args List
 */
 
-void _float(va_list var)
+void print_int(va_list arg)
 {
-float x;
+	int num;
 
-x = va_arg(var, double);
-printf("%f", x);
+	num = va_arg(arg, int);
+	printf("%d", num);
+}
+
+
+/**
+* print_float - Prints a float.
+* @arg: Args List
+*/
+
+void print_float(va_list arg)
+{
+	float digit;
+
+	digit = va_arg(arg, double);
+	printf("%f", digit);
 }
 
 /**
- * _int-> print int
- * @var: Args list
+* print_string - Prints a string.
+* @arg: Args List
 */
 
-void _int(va_list var)
+void print_string(va_list arg)
 {
-int x;
+	char *str;
 
-x = va_arg(var, int);
-printf("%d", x);
+	str = va_arg(arg, char *);
+	if (str != NULL)
+	{
+		printf("%s", str);
+		return;
+	}
+	printf("(nil)");
 }
 
 /**
- * _char-> print char
- * @var: Args list
-*/
-
-void _char(va_list var)
-{
-char x;
-
-x = va_arg(var, int);
-printf("%c", x);
-}
-
-/**
- * print_all -> Prints anything.
- * @format: Args list
+ * print_all -> Prints anything
+ * @format: Args List
  */
 
 void print_all(const char * const format, ...)
 {
-int i;
-int j;
-char *spechlle = "";
-va_list args;
+	int i, j;
+	char *separator = "";
+	va_list list;
 
-string func[] = {
-{"c", _char}, {"i", _int}, {"f", _float}, {"s", p_string}
-};
+	string funcs[] = {
+		{"c", print_char}, {"i", print_int}, {"f", print_float}, {"s", print_string}
+	};
 
-va_start(args, format);
-i = 0;
-while (format && (*(format + i)))
-{
-j = 0;
-while (j < 4 && (*(format + i) != *(func[j].str)))
-{
-j++;
-}
-if (j < 4)
-{
-printf("%s", spechlle);
-func[j].point(args);
-spechlle = ", ";
-}
-i++;
-}
-printf("\n");
-va_end(args);
+	va_start(list, format);
+	i = 0;
+	while (format && (*(format + i)))
+	{
+		j = 0;
+		while (j < 4 && (*(format + i) != *(funcs[j].str)))
+			j++;
+
+		if (j < 4)
+		{
+			printf("%s", separator);
+			funcs[j].print(list);
+			separator = ", ";
+		}
+		i++;
+	}
+	printf("\n");
+	va_end(list);
 }

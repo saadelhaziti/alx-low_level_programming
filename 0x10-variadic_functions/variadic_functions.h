@@ -7,7 +7,7 @@
 typedef struct forma_cara
 {
 	char *str;
-	void (*point)(va_list arg);
+	void (*print)(va_list arg);
 } string;
 
 int sum_them_all(const unsigned int n, ...);
