@@ -27,7 +27,7 @@ printf("(nil)");
 printf("%s", cara);
 if (separator != NULL && i < n - 1)
 {
-printf("%s ", separator);
+printf("%s", separator);
 }
 }
 putchar('\n');
