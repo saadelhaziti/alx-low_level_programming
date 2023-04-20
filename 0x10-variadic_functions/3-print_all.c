@@ -75,16 +75,16 @@ string func[] = {
 {"c", _char}, {"i", _int}, {"f", _float}, {"s", p_string}
 };
 
-i = 0;
 va_start(args, format);
+i = 0;
 while (format && (*(format + i)))
 {
 j = 0;
-while (*(format +i) != *(func[j].str))
+while (j < 4 && (*(format +i) != *(func[j].str)))
 {
 j++;
 }
-if (j != 0)
+if (j < 4)
 {
 printf("%s", spechlle);
 func[j].point(args);
