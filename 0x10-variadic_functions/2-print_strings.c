@@ -23,8 +23,11 @@ cara = va_arg(argv, char*);
 if (cara == NULL)
 {
 printf("(nil)");
-}else
+}
+else
+{
 printf("%s", cara);
+}
 if (separator != NULL && i < n - 1)
 {
 printf("%s", separator);
