@@ -1,5 +1,11 @@
 #include "lists.h"
 
+/**
+ * pop_listint -> pop_listint
+ *
+ * @head: list
+*/
+
 int pop_listint(listint_t **head)
 {
 int n = 0;
