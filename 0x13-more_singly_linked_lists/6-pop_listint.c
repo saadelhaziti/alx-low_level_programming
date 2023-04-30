@@ -2,8 +2,8 @@
 
 /**
  * pop_listint -> pop_listint
- *
  * @head: list
+ * Return: int
 */
 
 int pop_listint(listint_t **head)
